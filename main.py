@@ -15,15 +15,25 @@ shift = int(input("Type the shift number:\n"))
 # TODO-3: Call the 'encrypt()' function and pass in the user inputs. You should be able to test the code and encrypt a
 #  message.
 
-def encrypt(original_text, shift_amount):
-    encrypted_text = ""
+def caesar(original_text, shift_amount, direction):
+    result_text = ""
     for char in original_text:
         if char in alphabet:
             original_index = alphabet.index(char)
-            new_index = (original_index + shift_amount) % 26
-            encrypted_text += alphabet[new_index]
+            if direction == "encode":
+                new_index = (original_index + shift_amount) % 26
+            elif direction == "decode":
+                new_index = (original_index - shift_amount) % 26
+            else:
+                new_index = original_index
+            result_text += alphabet[new_index]
         else:
-            encrypted_text += char
-    print(encrypted_text)
+            result_text += char
+    if direction == "encode":
+        print(f"Here is the encoded result: {result_text}")
+    elif direction == "decode":
+        print(f"Here is the decoded result: {result_text}")
+    else:
+        print(result_text)
 
-encrypt(text, shift)
+caesar(text, shift, direction)
