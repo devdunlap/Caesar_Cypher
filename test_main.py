@@ -9,6 +9,12 @@ import sys
 from main import caesar
 
 class TestCaesarCipher(unittest.TestCase):
+	def test_empty_string(self):
+		"""
+		Test encoding and decoding of an empty string.
+		"""
+		self.assertEqual(self._get_result('', 5, 'encode'), '')
+		self.assertEqual(self._get_result('', 5, 'decode'), '')
 	"""
 	Unit tests for the caesar function.
 	"""
