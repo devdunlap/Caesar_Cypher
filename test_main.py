@@ -9,6 +9,13 @@ import sys
 from main import caesar
 
 class TestCaesarCipher(unittest.TestCase):
+	def test_symbols_and_numbers(self):
+		"""
+		Test that a string with only symbols and numbers is unchanged.
+		"""
+		input_str = '1234!@#$%^&*()_+-=,./<>?'
+		self.assertEqual(self._get_result(input_str, 10, 'encode'), input_str)
+		self.assertEqual(self._get_result(input_str, 10, 'decode'), input_str)
 	def test_empty_string(self):
 		"""
 		Test encoding and decoding of an empty string.
