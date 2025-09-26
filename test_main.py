@@ -9,6 +9,11 @@ import sys
 from main import caesar
 
 class TestCaesarCipher(unittest.TestCase):
+	def test_mixed_content_negative_shift(self):
+		"""
+		Test decoding a string with mixed letters, numbers, and punctuation using a negative shift.
+		"""
+		self.assertEqual(self._get_result('Bqqmf! 123', -1, 'decode'), 'Apple! 123')
 	def test_symbols_and_numbers(self):
 		"""
 		Test that a string with only symbols and numbers is unchanged.
